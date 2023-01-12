@@ -19,12 +19,12 @@ onMounted(()=>{
   }else{
     if(location.search.indexOf('?redirceUrl=')!=-1){
       router.push({path:'/login',query:{redirceUrl:location.search.replace('?redirceUrl=','')}})
-    
-      if(self.location!=top?.location){
+      try{
         setTimeout(()=>{
           window.parent.postMessage(localStorage.getItem('token'),document.referrer)
         },500)
-      }
+      }catch(err){/** */}
+      
     }else{
       router.push('/error')
     } 

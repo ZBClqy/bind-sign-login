@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{c as _,e as o}from"./index-b520779f.js";const r={},c={class:"box_home"};function t(s,n){return _(),o("div",c," 错误页面 ")}const f=e(r,[["render",t],["__scopeId","data-v-44f960e7"]]);export{f as default};
