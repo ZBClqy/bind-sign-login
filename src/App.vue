@@ -11,6 +11,7 @@ onMounted(()=>{
     if(location.search.indexOf('?redirceUrl=')==-1){
       router.push('/error')
     }else{
+      console.log('发送token')
       setTimeout(()=>{
         window.parent.postMessage(localStorage.getItem('token'),document.referrer)
       },500)
@@ -20,6 +21,7 @@ onMounted(()=>{
     if(location.search.indexOf('?redirceUrl=')!=-1){
       router.push({path:'/login',query:{redirceUrl:location.search.replace('?redirceUrl=','')}})
       try{
+        console.log('发送空token')
         setTimeout(()=>{
           window.parent.postMessage(localStorage.getItem('token'),document.referrer)
         },500)
