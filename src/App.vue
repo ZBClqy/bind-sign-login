@@ -13,19 +13,21 @@ onMounted(()=>{
     }else{
       console.log('发送token')
       setTimeout(()=>{
-        window.parent.postMessage(localStorage.getItem('token'),document.referrer)
+        try{
+          window.parent.postMessage(localStorage.getItem('token'),document.referrer)
+        }catch(err){/** */}
       },500)
      
     }
   }else{
     if(location.search.indexOf('?redirceUrl=')!=-1){
       router.push({path:'/login',query:{redirceUrl:location.search.replace('?redirceUrl=','')}})
-      try{
-        console.log('发送空token')
-        setTimeout(()=>{
+      setTimeout(()=>{
+        try{
           window.parent.postMessage(localStorage.getItem('token'),document.referrer)
-        },500)
-      }catch(err){/** */}
+        }catch(err){/** */}
+      },500)
+    
       
     }else{
       router.push('/error')
